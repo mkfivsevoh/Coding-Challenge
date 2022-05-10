@@ -1,0 +1,34 @@
+﻿@model ClarkCodingChallenge.Models.Contact
+
+@{
+    ViewData["Title"] = "Contacts Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+<div>
+
+    <h3>Enter your information below to be added to the mailing list</h3> <br />
+    <form method="post">
+        <label for="firstNameField">First Name:</label>
+        <input id="firstNameField" type="text" name="firstName" asp-for="firstName" />
+        <span asp-validation-for="firstName"></span><br />
+
+        <label for="lastNameField">Last Name:</label>
+        <input id="lastNameField" type="text" name="lastName" asp-for="lastName" />
+        <span asp-validation-for="lastName"></span><br />
+
+        <label for="emailAddressField">Email:</label>
+        <input id="emailAddressField" type="email" name="emailAddress" asp-for="emailAddress" />
+        <span asp-validation-for="emailAddress"></span><br />
+
+        <input type="submit" value="Submit" asp-action="SubmitContact" asp-controller="Contacts" />
+    </form>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
